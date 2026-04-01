@@ -1,0 +1,311 @@
+/* =========================
+GLOBAL RESET
+========================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+/* =========================
+DARK BACKGROUND
+========================= */
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:linear-gradient(
+135deg,
+#0f2027,
+#203a43,
+#2c5364
+);
+
+background-size:300% 300%;
+animation:bgMove 12s ease infinite;
+}
+
+/* subtle animated gradient */
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+
+/* =========================
+MAIN CONTAINER
+========================= */
+
+.container{
+
+background:rgba(20,20,25,0.85);
+
+backdrop-filter:blur(18px);
+
+padding:40px;
+
+border-radius:22px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.6);
+
+text-align:center;
+
+width:340px;
+
+color:white;
+
+}
+
+
+/* =========================
+TITLE
+========================= */
+
+.title{
+
+font-size:32px;
+
+font-weight:600;
+
+margin-bottom:12px;
+
+color:#ffffff;
+
+letter-spacing:1px;
+
+}
+
+
+/* =========================
+STATUS TEXT
+========================= */
+
+#status{
+
+font-size:18px;
+
+font-weight:600;
+
+margin:15px 0;
+
+color:#d0d0d0;
+
+}
+
+
+/* =========================
+MODE TOGGLE
+========================= */
+
+.mode-toggle{
+
+margin-bottom:10px;
+
+font-size:15px;
+
+color:#cfcfcf;
+
+}
+
+.mode-toggle input{
+
+margin-right:6px;
+
+cursor:pointer;
+
+}
+
+
+/* =========================
+BOARD GRID
+========================= */
+
+.board{
+
+display:grid;
+
+grid-template-columns:repeat(3,100px);
+
+grid-template-rows:repeat(3,100px);
+
+gap:12px;
+
+justify-content:center;
+
+margin:20px 0;
+
+}
+
+
+/* =========================
+CELL STYLE
+========================= */
+
+.cell{
+
+background:#1e1e2a;
+
+border-radius:14px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:2.8rem;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.25s ease;
+
+color:#ffffff;
+
+box-shadow:
+0 6px 12px rgba(0,0,0,.6);
+
+}
+
+
+/* Hover animation */
+
+.cell:hover{
+
+background:#2d2d3f;
+
+transform:scale(1.08);
+
+}
+
+
+/* Click animation */
+
+.cell:active{
+
+transform:scale(.95);
+
+}
+
+
+/* =========================
+WIN HIGHLIGHT
+========================= */
+
+.cell.win{
+
+background:#00c853 !important;
+
+color:#000;
+
+animation:winPulse .6s ease infinite alternate;
+
+}
+
+
+@keyframes winPulse{
+
+from{
+transform:scale(1);
+}
+
+to{
+transform:scale(1.1);
+}
+
+}
+
+
+/* =========================
+RESTART BUTTON
+========================= */
+
+button{
+
+padding:12px 25px;
+
+border:none;
+
+background:linear-gradient(
+45deg,
+#4facfe,
+#00c6ff
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+border-radius:12px;
+
+cursor:pointer;
+
+transition:.3s;
+
+box-shadow:
+0 6px 15px rgba(0,0,0,.4);
+
+}
+
+
+/* Hover effect */
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 12px 25px rgba(0,0,0,.6);
+
+}
+
+
+/* Click effect */
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+
+/* =========================
+RESPONSIVE SUPPORT
+========================= */
+
+@media(max-width:500px){
+
+.container{
+
+width:90%;
+
+padding:25px;
+
+}
+
+.board{
+
+grid-template-columns:repeat(3,80px);
+
+grid-template-rows:repeat(3,80px);
+
+}
+
+.cell{
+
+font-size:2rem;
+
+}
+
+}
